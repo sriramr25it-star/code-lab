@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Code - Digital Artisan</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <title>Vibe Code - 3D Digital Artisan | Ultra Portfolio</title>
+    <link rel="stylesheet" href="styles_v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
-    <!-- Floating Background Elements -->
-    <div class="floating-elements" id="floatingElements"></div>
-    
-    <!-- Starfield Background -->
-    <canvas id="starfield"></canvas>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-text">
+                <span class="loading-percent" id="loadingPercent">0%</span>
+                <span class="loading-message">Initializing Experience...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas Container -->
+    <canvas id="threeCanvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <span class="logo-icon"><i class="fas fa-code"></i></span>
+                <span class="logo-icon"><i class="fas fa-cube"></i></span>
                 <span class="logo-text">Vibe<span class="accent">Code</span></span>
             </a>
             <ul class="nav-links" id="navLinks">
@@ -53,24 +62,24 @@
         </ul>
     </div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with 3D -->
     <section class="hero" id="home">
         <div class="hero-content">
             <div class="hero-badge animate-fade-in">
                 <span class="badge-dot"></span>
-                <span>Available for Projects</span>
+                <span>Building Digital Dreams</span>
             </div>
             <h1 class="hero-title">
-                <span class="title-line">Crafting Digital</span>
+                <span class="title-line">Crafting <span class="gradient-text-3d">3D</span></span>
                 <span class="title-line gradient-text">Experiences</span>
                 <span class="title-line">That Inspire</span>
             </h1>
-            <p class="hero-description typewriter">
-                I build beautiful, performant web applications that push boundaries and create impact.
+            <p class="hero-description">
+                I build immersive, performant web applications with cutting-edge 3D graphics and animations that push the boundaries of digital design.
             </p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">
-                    <span>View My Work</span>
+                    <span>Explore My Work</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
                 <a href="#contact" class="btn btn-secondary">
@@ -80,39 +89,21 @@
             </div>
             <div class="hero-stats">
                 <div class="stat">
-                    <span class="stat-number counter" data-target="50">0</span>
+                    <span class="stat-number counter" data-target="100">0</span>
                     <span class="stat-label">+ Projects</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number counter" data-target="100">0</span>
+                    <span class="stat-number counter" data-target="150">0</span>
                     <span class="stat-label">% Satisfaction</span>
                 </div>
                 <div class="stat">
-                    <span class="stat-number counter" data-target="5">0</span>
+                    <span class="stat-number counter" data-target="8">0</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
             </div>
         </div>
-        <div class="hero-visual">
-            <div class="code-snippet">
-                <div class="code-header">
-                    <span class="code-dot red"></span>
-                    <span class="code-dot yellow"></span>
-                    <span class="code-dot green"></span>
-                    <span class="code-title">vibe-code.js</span>
-                </div>
-                <pre class="code-content"><code><span class="line"><span class="keyword">const</span> <span class="function">createAmazing</span> = <span class="params">()</span> <span class="arrow">=></span> {</span>
-<span class="line">  <span class="keyword">return</span> <span class="string">"Innovative Solutions"</span> +</span>
-<span class="line">    <span class="string">"That Transform Ideas"</span> +</span>
-<span class="line">    <span class="string">"Into Reality";</span></span>
-<span class="line">};</span>
-<span class="line">
-<span class="comment">// Ready to build something amazing?</span></span></code></pre>
-            </div>
-            <div class="hero-orb" id="heroOrb"></div>
-        </div>
         <div class="scroll-indicator">
-            <span>Scroll Down</span>
+            <span>Scroll to Explore</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
@@ -124,8 +115,7 @@
                 <span class="section-tag">About Me</span>
                 <h2 class="section-title">Passionate <span class="gradient-text">Digital Artisan</span></h2>
                 <p class="section-description">
-                    I transform complex problems into elegant, user-friendly digital experiences 
-                    that drive results and create lasting impressions.
+                    I transform complex problems into elegant, user-friendly digital experiences that drive results and create lasting impressions.
                 </p>
             </div>
             
@@ -133,26 +123,17 @@
                 <div class="about-image-card">
                     <div class="image-container">
                         <div class="geometric-bg"></div>
-                        <div class="profile-image">
-                            <div class="avatar">
-                                <i class="fas fa-user-astronaut"></i>
-                            </div>
-                        </div>
+                        <div class="profile-3d-container" id="profile3d"></div>
                     </div>
                 </div>
                 
                 <div class="about-content">
                     <div class="about-text">
                         <p>
-                            With a deep understanding of both design and development, I create 
-                            seamless digital experiences that blend creativity with technical 
-                            excellence. My approach combines strategic thinking with pixel-perfect 
-                            execution.
+                            With a deep understanding of both design and development, I create seamless digital experiences that blend creativity with technical excellence. My approach combines strategic thinking with pixel-perfect execution.
                         </p>
                         <p>
-                            I specialize in building modern web applications that are fast, 
-                            accessible, and beautiful. From concept to deployment, I ensure every 
-                            project exceeds expectations.
+                            I specialize in building modern web applications with <strong>3D graphics</strong>, <strong>animations</strong>, and <strong>interactive experiences</strong> that are fast, accessible, and beautiful.
                         </p>
                     </div>
                     
@@ -194,181 +175,69 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section with 3D -->
     <section class="skills" id="skills">
         <div class="section-container">
             <div class="section-header centered">
                 <span class="section-tag">My Skills</span>
                 <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
                 <p class="section-description">
-                    Mastery across the full stack with a focus on creating exceptional digital experiences
+                    Mastery across the full stack with a focus on creating exceptional 3D digital experiences
                 </p>
+            </div>
+            
+            <div class="skills-3d-container" id="skills3d">
+                <div class="skills-grid-overlay">
+                    <div class="skill-card-3d" data-skill="html">
+                        <div class="skill-icon html">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h3 class="skill-name">HTML5</h3>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="skill-card-3d" data-skill="css">
+                        <div class="skill-icon css">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <h3 class="skill-name">CSS3</h3>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-card-3d" data-skill="javascript">
+                        <div class="skill-icon js">
+                            <i class="fab fa-js-square"></i>
+                        </div>
+                        <h3 class="skill-name">JavaScript</h3>
+                        <span class="skill-percent">95%</span>
+                    </div>
+                    <div class="skill-card-3d" data-skill="react">
+                        <div class="skill-icon react">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <h3 class="skill-name">React</h3>
+                        <span class="skill-percent">90%</span>
+                    </div>
+                    <div class="skill-card-3d" data-skill="threejs">
+                        <div class="skill-icon threejs">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3 class="skill-name">Three.js</h3>
+                        <span class="skill-percent">85%</span>
+                    </div>
+                    <div class="skill-card-3d" data-skill="typescript">
+                        <div class="skill-icon typescript">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="skill-name">TypeScript</h3>
+                        <span class="skill-percent">88%</span>
+                    </div>
+                </div>
             </div>
             
             <div class="skills-tabs">
                 <button class="skill-tab active" data-category="all">All Skills</button>
                 <button class="skill-tab" data-category="frontend">Frontend</button>
                 <button class="skill-tab" data-category="backend">Backend</button>
-                <button class="skill-tab" data-category="tools">Tools</button>
-            </div>
-            
-            <div class="skills-grid" id="skillsGrid">
-                <!-- Frontend Skills -->
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon html">
-                        <i class="fab fa-html5"></i>
-                    </div>
-                    <h3 class="skill-name">HTML5</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 95%"></span>
-                    </div>
-                    <span class="skill-percent">95%</span>
-                </div>
-                
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon css">
-                        <i class="fab fa-css3-alt"></i>
-                    </div>
-                    <h3 class="skill-name">CSS3</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 90%"></span>
-                    </div>
-                    <span class="skill-percent">90%</span>
-                </div>
-                
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon js">
-                        <i class="fab fa-js-square"></i>
-                    </div>
-                    <h3 class="skill-name">JavaScript</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 95%"></span>
-                    </div>
-                    <span class="skill-percent">95%</span>
-                </div>
-                
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon react">
-                        <i class="fab fa-react"></i>
-                    </div>
-                    <h3 class="skill-name">React</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 90%"></span>
-                    </div>
-                    <span class="skill-percent">90%</span>
-                </div>
-                
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon vue">
-                        <i class="fab fa-vuejs"></i>
-                    </div>
-                    <h3 class="skill-name">Vue.js</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 85%"></span>
-                    </div>
-                    <span class="skill-percent">85%</span>
-                </div>
-                
-                <div class="skill-card" data-category="frontend">
-                    <div class="skill-icon typescript">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3 class="skill-name">TypeScript</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 88%"></span>
-                    </div>
-                    <span class="skill-percent">88%</span>
-                </div>
-                
-                <!-- Backend Skills -->
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-icon node">
-                        <i class="fab fa-node-js"></i>
-                    </div>
-                    <h3 class="skill-name">Node.js</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 85%"></span>
-                    </div>
-                    <span class="skill-percent">85%</span>
-                </div>
-                
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-icon python">
-                        <i class="fab fa-python"></i>
-                    </div>
-                    <h3 class="skill-name">Python</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 80%"></span>
-                    </div>
-                    <span class="skill-percent">80%</span>
-                </div>
-                
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-icon database">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3 class="skill-name">MongoDB</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 82%"></span>
-                    </div>
-                    <span class="skill-percent">82%</span>
-                </div>
-                
-                <div class="skill-card" data-category="backend">
-                    <div class="skill-icon express">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="skill-name">Express</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 85%"></span>
-                    </div>
-                    <span class="skill-percent">85%</span>
-                </div>
-                
-                <!-- Tools -->
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-icon git">
-                        <i class="fab fa-git-alt"></i>
-                    </div>
-                    <h3 class="skill-name">Git</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 90%"></span>
-                    </div>
-                    <span class="skill-percent">90%</span>
-                </div>
-                
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-icon docker">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <h3 class="skill-name">Docker</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 75%"></span>
-                    </div>
-                    <span class="skill-percent">75%</span>
-                </div>
-                
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-icon figma">
-                        <i class="fab fa-figma"></i>
-                    </div>
-                    <h3 class="skill-name">Figma</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 85%"></span>
-                    </div>
-                    <span class="skill-percent">85%</span>
-                </div>
-                
-                <div class="skill-card" data-category="tools">
-                    <div class="skill-icon aws">
-                        <i class="fab fa-aws"></i>
-                    </div>
-                    <h3 class="skill-name">AWS</h3>
-                    <div class="skill-level">
-                        <span class="level-bar" style="--width: 70%"></span>
-                    </div>
-                    <span class="skill-percent">70%</span>
-                </div>
+                <button class="skill-tab" data-category="3d">3D & Graphics</button>
             </div>
         </div>
     </section>
@@ -384,18 +253,12 @@
                 </p>
             </div>
             
-            <div class="projects-filter">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Apps</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-                <button class="filter-btn" data-filter="design">UI/UX</button>
-            </div>
-            
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card" data-filter="web">
+                <div class="project-card" data-filter="3d">
                     <div class="project-image">
                         <div class="project-bg gradient-1"></div>
+                        <div class="project-3d-placeholder" id="project3d-1"></div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -403,15 +266,14 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Nexus Dashboard</h3>
+                        <h3 class="project-title">3D E-Commerce Platform</h3>
                         <p class="project-description">
-                            A comprehensive analytics dashboard with real-time data visualization 
-                            and advanced filtering capabilities.
+                            A 3D product visualization platform with interactive 3D models, real-time rendering, and immersive shopping experience.
                         </p>
                         <div class="project-tech">
+                            <span class="tech-tag">Three.js</span>
                             <span class="tech-tag">React</span>
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">WebGL</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -425,9 +287,11 @@
                 </div>
                 
                 <!-- Project 2 -->
-                <div class="project-card" data-filter="mobile">
+                <div class="project-card featured" data-filter="3d">
                     <div class="project-image">
                         <div class="project-bg gradient-2"></div>
+                        <div class="project-3d-placeholder" id="project3d-2"></div>
+                        <div class="project-badge">Featured</div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -435,15 +299,15 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">TaskFlow Mobile</h3>
+                        <h3 class="project-title">Interactive 3D Portfolio</h3>
                         <p class="project-description">
-                            A productivity app that helps teams collaborate and manage tasks 
-                            efficiently with offline-first capabilities.
+                            A fully 3D portfolio website with floating islands, animated transitions, and immersive navigation. Built with Three.js and React.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Framer Motion</span>
+                            <span class="tech-tag">WebGL</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -457,10 +321,10 @@
                 </div>
                 
                 <!-- Project 3 -->
-                <div class="project-card featured" data-filter="web">
+                <div class="project-card" data-filter="web">
                     <div class="project-image">
                         <div class="project-bg gradient-3"></div>
-                        <div class="project-badge">Featured</div>
+                        <div class="project-3d-placeholder" id="project3d-3"></div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -468,16 +332,14 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <h3 class="project-title">Animated Dashboard</h3>
                         <p class="project-description">
-                            A full-featured e-commerce solution with payment integration, 
-                            inventory management, and advanced search.
+                            A data visualization dashboard with 3D charts, animated transitions, and real-time data updates.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Stripe</span>
+                            <span class="tech-tag">D3.js</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">React</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -491,9 +353,10 @@
                 </div>
                 
                 <!-- Project 4 -->
-                <div class="project-card" data-filter="design">
+                <div class="project-card" data-filter="3d">
                     <div class="project-image">
                         <div class="project-bg gradient-4"></div>
+                        <div class="project-3d-placeholder" id="project3d-4"></div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -501,15 +364,14 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Design System</h3>
+                        <h3 class="project-title">3D Game Engine</h3>
                         <p class="project-description">
-                            A comprehensive design system with reusable components, 
-                            documentation, and implementation guidelines.
+                            A custom 3D game engine with physics, lighting, and particle systems. Built from scratch with WebGL.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">Storybook</span>
-                            <span class="tech-tag">CSS Modules</span>
+                            <span class="tech-tag">WebGL</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">JavaScript</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -526,6 +388,7 @@
                 <div class="project-card" data-filter="web">
                     <div class="project-image">
                         <div class="project-bg gradient-5"></div>
+                        <div class="project-3d-placeholder" id="project3d-5"></div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -533,15 +396,14 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Social Network</h3>
+                        <h3 class="project-title">VR Experience Platform</h3>
                         <p class="project-description">
-                            A modern social platform with real-time messaging, notifications, 
-                            and content sharing features.
+                            A WebXR-based virtual reality experience platform with 3D environments and interactive elements.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Vue.js</span>
-                            <span class="tech-tag">Firebase</span>
-                            <span class="tech-tag">Vuetify</span>
+                            <span class="tech-tag">WebXR</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">A-Frame</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -558,6 +420,7 @@
                 <div class="project-card" data-filter="mobile">
                     <div class="project-image">
                         <div class="project-bg gradient-6"></div>
+                        <div class="project-3d-placeholder" id="project3d-6"></div>
                         <div class="project-overlay">
                             <button class="view-btn">
                                 <i class="fas fa-eye"></i> View Project
@@ -565,15 +428,14 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3 class="project-title">Fitness Tracker</h3>
+                        <h3 class="project-title">AR Mobile App</h3>
                         <p class="project-description">
-                            A health and fitness app with workout tracking, progress analytics, 
-                            and personalized recommendations.
+                            An augmented reality mobile application with 3D object placement and real-world interaction.
                         </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Dart</span>
-                            <span class="tech-tag">HealthKit</span>
+                            <span class="tech-tag">AR.js</span>
+                            <span class="tech-tag">Three.js</span>
+                            <span class="tech-tag">React Native</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" aria-label="Live Demo">
@@ -605,9 +467,7 @@
                     <div class="testimonial-content">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="testimonial-text">
-                            Working with Vibe Code was transformative. They took our vague ideas 
-                            and turned them into a beautiful, functional product that exceeded all 
-                            our expectations.
+                            The 3D portfolio Vibe Code created for us transformed our digital presence. The animations and interactivity blew away our clients and significantly increased engagement.
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -625,9 +485,7 @@
                     <div class="testimonial-content">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="testimonial-text">
-                            The attention to detail and technical expertise is unmatched. Our 
-                            conversion rates increased by 200% after the redesign. Highly recommended 
-                            for any serious business.
+                            The attention to detail and technical expertise is unmatched. Our conversion rates increased by 300% after the 3D redesign. Highly recommended for any serious business.
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -645,9 +503,7 @@
                     <div class="testimonial-content">
                         <i class="fas fa-quote-left quote-icon"></i>
                         <p class="testimonial-text">
-                            From the initial consultation to the final delivery, the entire process 
-                            was seamless. The team is professional, responsive, and incredibly 
-                            talented.
+                            From concept to deployment, the entire process was seamless. The 3D elements and smooth animations make our platform stand out from the competition.
                         </p>
                     </div>
                     <div class="testimonial-author">
@@ -664,7 +520,7 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact Section with 3D Earth -->
     <section class="contact" id="contact">
         <div class="section-container">
             <div class="contact-grid">
@@ -672,8 +528,7 @@
                     <span class="section-tag">Get In Touch</span>
                     <h2 class="section-title">Let's <span class="gradient-text">Build Something</span></h2>
                     <p class="contact-description">
-                        Ready to transform your ideas into reality? Let's create something amazing 
-                        together. Reach out and let's discuss your project.
+                        Ready to transform your ideas into reality? Let's create something amazing together with cutting-edge 3D technology.
                     </p>
                     
                     <div class="contact-details">
@@ -725,6 +580,7 @@
                 </div>
                 
                 <div class="contact-form-container">
+                    <div class="earth-3d-container" id="earth3d"></div>
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -740,9 +596,9 @@
                             <label for="subject">Subject</label>
                             <select id="subject" name="subject" required>
                                 <option value="" disabled selected>Select a topic</option>
-                                <option value="project">New Project</option>
-                                <option value="collaboration">Collaboration</option>
-                                <option value="general">General Inquiry</option>
+                                <option value="3d-project">3D Project</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="consultation">Consultation</option>
                             </select>
                         </div>
                         
@@ -767,11 +623,11 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <a href="#" class="logo">
-                        <span class="logo-icon"><i class="fas fa-code"></i></span>
+                        <span class="logo-icon"><i class="fas fa-cube"></i></span>
                         <span class="logo-text">Vibe<span class="accent">Code</span></span>
                     </a>
                     <p class="footer-tagline">
-                        Crafting digital experiences that inspire and transform
+                        Crafting immersive 3D digital experiences that inspire and transform
                     </p>
                 </div>
                 
@@ -790,19 +646,20 @@
                     <div class="footer-column">
                         <h4>Services</h4>
                         <ul>
-                            <li><a href="#">Web Development</a></li>
-                            <li><a href="#">UI/UX Design</a></li>
-                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">3D Development</a></li>
+                            <li><a href="#">WebGL</a></li>
+                            <li><a href="#">Interactive Design</a></li>
                             <li><a href="#">Consulting</a></li>
                         </ul>
                     </div>
                     
                     <div class="footer-column">
-                        <h4>Legal</h4>
+                        <h4>Technologies</h4>
                         <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Cookie Policy</a></li>
+                            <li><a href="#">Three.js</a></li>
+                            <li><a href="#">WebGL</a></li>
+                            <li><a href="#">React</a></li>
+                            <li><a href="#">JavaScript</a></li>
                         </ul>
                     </div>
                 </div>
@@ -830,7 +687,6 @@
     <div class="custom-cursor" id="customCursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
 
-    <script src="script.js"></script>
+    <script src="script_v2.js"></script>
 </body>
 </html>
-<!-- Deployed via GitHub Pages -->
