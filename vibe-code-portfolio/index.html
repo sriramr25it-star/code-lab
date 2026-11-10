@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Code - Digital Artisan</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-code"></i></span>
+                <span class="logo-text">Vibe<span class="accent">Code</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-nav-link">Home</a></li>
+            <li><a href="#about" class="mobile-nav-link">About</a></li>
+            <li><a href="#skills" class="mobile-nav-link">Skills</a></li>
+            <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-in">
+                <span class="badge-dot"></span>
+                <span>Available for Projects</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Crafting Digital</span>
+                <span class="title-line gradient-text">Experiences</span>
+                <span class="title-line">That Inspire</span>
+            </h1>
+            <p class="hero-description typewriter">
+                I build beautiful, performant web applications that push boundaries and create impact.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View My Work</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get In Touch</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number counter" data-target="50">0</span>
+                    <span class="stat-label">+ Projects</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number counter" data-target="100">0</span>
+                    <span class="stat-label">% Satisfaction</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number counter" data-target="5">0</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="code-snippet">
+                <div class="code-header">
+                    <span class="code-dot red"></span>
+                    <span class="code-dot yellow"></span>
+                    <span class="code-dot green"></span>
+                    <span class="code-title">vibe-code.js</span>
+                </div>
+                <pre class="code-content"><code><span class="line"><span class="keyword">const</span> <span class="function">createAmazing</span> = <span class="params">()</span> <span class="arrow">=></span> {</span>
+<span class="line">  <span class="keyword">return</span> <span class="string">"Innovative Solutions"</span> +</span>
+<span class="line">    <span class="string">"That Transform Ideas"</span> +</span>
+<span class="line">    <span class="string">"Into Reality";</span></span>
+<span class="line">};</span>
+<span class="line">
+<span class="comment">// Ready to build something amazing?</span></span></code></pre>
+            </div>
+            <div class="hero-orb" id="heroOrb"></div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Passionate <span class="gradient-text">Digital Artisan</span></h2>
+                <p class="section-description">
+                    I transform complex problems into elegant, user-friendly digital experiences 
+                    that drive results and create lasting impressions.
+                </p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-image-card">
+                    <div class="image-container">
+                        <div class="geometric-bg"></div>
+                        <div class="profile-image">
+                            <div class="avatar">
+                                <i class="fas fa-user-astronaut"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>
+                            With a deep understanding of both design and development, I create 
+                            seamless digital experiences that blend creativity with technical 
+                            excellence. My approach combines strategic thinking with pixel-perfect 
+                            execution.
+                        </p>
+                        <p>
+                            I specialize in building modern web applications that are fast, 
+                            accessible, and beautiful. From concept to deployment, I ensure every 
+                            project exceeds expectations.
+                        </p>
+                    </div>
+                    
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Name:</span>
+                            <span class="detail-value">Vibe Code</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span class="detail-value"><i class="fas fa-map-marker-alt"></i> Digital Realm</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Email:</span>
+                            <span class="detail-value">contact@vibecode.dev</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Status:</span>
+                            <span class="detail-value available">Available for Work</span>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+            <div class="section-header centered">
+                <span class="section-tag">My Skills</span>
+                <h2 class="section-title">Technical <span class="gradient-text">Expertise</span></h2>
+                <p class="section-description">
+                    Mastery across the full stack with a focus on creating exceptional digital experiences
+                </p>
+            </div>
+            
+            <div class="skills-tabs">
+                <button class="skill-tab active" data-category="all">All Skills</button>
+                <button class="skill-tab" data-category="frontend">Frontend</button>
+                <button class="skill-tab" data-category="backend">Backend</button>
+                <button class="skill-tab" data-category="tools">Tools</button>
+            </div>
+            
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Frontend Skills -->
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon html">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3 class="skill-name">HTML5</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 95%"></span>
+                    </div>
+                    <span class="skill-percent">95%</span>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon css">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <h3 class="skill-name">CSS3</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 90%"></span>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon js">
+                        <i class="fab fa-js-square"></i>
+                    </div>
+                    <h3 class="skill-name">JavaScript</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 95%"></span>
+                    </div>
+                    <span class="skill-percent">95%</span>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon react">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <h3 class="skill-name">React</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 90%"></span>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon vue">
+                        <i class="fab fa-vuejs"></i>
+                    </div>
+                    <h3 class="skill-name">Vue.js</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 85%"></span>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                
+                <div class="skill-card" data-category="frontend">
+                    <div class="skill-icon typescript">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="skill-name">TypeScript</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 88%"></span>
+                    </div>
+                    <span class="skill-percent">88%</span>
+                </div>
+                
+                <!-- Backend Skills -->
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-icon node">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <h3 class="skill-name">Node.js</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 85%"></span>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-icon python">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="skill-name">Python</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 80%"></span>
+                    </div>
+                    <span class="skill-percent">80%</span>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-icon database">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3 class="skill-name">MongoDB</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 82%"></span>
+                    </div>
+                    <span class="skill-percent">82%</span>
+                </div>
+                
+                <div class="skill-card" data-category="backend">
+                    <div class="skill-icon express">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3 class="skill-name">Express</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 85%"></span>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                
+                <!-- Tools -->
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-icon git">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
+                    <h3 class="skill-name">Git</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 90%"></span>
+                    </div>
+                    <span class="skill-percent">90%</span>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-icon docker">
+                        <i class="fab fa-docker"></i>
+                    </div>
+                    <h3 class="skill-name">Docker</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 75%"></span>
+                    </div>
+                    <span class="skill-percent">75%</span>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-icon figma">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h3 class="skill-name">Figma</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 85%"></span>
+                    </div>
+                    <span class="skill-percent">85%</span>
+                </div>
+                
+                <div class="skill-card" data-category="tools">
+                    <div class="skill-icon aws">
+                        <i class="fab fa-aws"></i>
+                    </div>
+                    <h3 class="skill-name">AWS</h3>
+                    <div class="skill-level">
+                        <span class="level-bar" style="--width: 70%"></span>
+                    </div>
+                    <span class="skill-percent">70%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="section-container">
+            <div class="section-header centered">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+                <p class="section-description">
+                    Handcrafted digital solutions that solve real problems and create impact
+                </p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">UI/UX</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-filter="web">
+                    <div class="project-image">
+                        <div class="project-bg gradient-1"></div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Nexus Dashboard</h3>
+                        <p class="project-description">
+                            A comprehensive analytics dashboard with real-time data visualization 
+                            and advanced filtering capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">D3.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-filter="mobile">
+                    <div class="project-image">
+                        <div class="project-bg gradient-2"></div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">TaskFlow Mobile</h3>
+                        <p class="project-description">
+                            A productivity app that helps teams collaborate and manage tasks 
+                            efficiently with offline-first capabilities.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Redux</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card featured" data-filter="web">
+                    <div class="project-image">
+                        <div class="project-bg gradient-3"></div>
+                        <div class="project-badge">Featured</div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-featured e-commerce solution with payment integration, 
+                            inventory management, and advanced search.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card" data-filter="design">
+                    <div class="project-image">
+                        <div class="project-bg gradient-4"></div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Design System</h3>
+                        <p class="project-description">
+                            A comprehensive design system with reusable components, 
+                            documentation, and implementation guidelines.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Storybook</span>
+                            <span class="tech-tag">CSS Modules</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card" data-filter="web">
+                    <div class="project-image">
+                        <div class="project-bg gradient-5"></div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Social Network</h3>
+                        <p class="project-description">
+                            A modern social platform with real-time messaging, notifications, 
+                            and content sharing features.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Vuetify</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card" data-filter="mobile">
+                    <div class="project-image">
+                        <div class="project-bg gradient-6"></div>
+                        <div class="project-overlay">
+                            <button class="view-btn">
+                                <i class="fas fa-eye"></i> View Project
+                            </button>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Fitness Tracker</h3>
+                        <p class="project-description">
+                            A health and fitness app with workout tracking, progress analytics, 
+                            and personalized recommendations.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Flutter</span>
+                            <span class="tech-tag">Dart</span>
+                            <span class="tech-tag">HealthKit</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link" aria-label="Live Demo">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                            <a href="#" class="project-link" aria-label="Source Code">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="section-container">
+            <div class="section-header centered">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What <span class="gradient-text">Clients Say</span></h2>
+                <p class="section-description">
+                    Partnerships built on trust, collaboration, and exceptional results
+                </p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            Working with Vibe Code was transformative. They took our vague ideas 
+                            and turned them into a beautiful, functional product that exceeded all 
+                            our expectations.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Sarah Johnson</h4>
+                            <p class="author-role">CEO, TechStart</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card featured">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            The attention to detail and technical expertise is unmatched. Our 
+                            conversion rates increased by 200% after the redesign. Highly recommended 
+                            for any serious business.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Michael Chen</h4>
+                            <p class="author-role">CTO, InnovateCorp</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <p class="testimonial-text">
+                            From the initial consultation to the final delivery, the entire process 
+                            was seamless. The team is professional, responsive, and incredibly 
+                            talented.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Emily Rodriguez</h4>
+                            <p class="author-role">Founder, CreativeLab</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get In Touch</span>
+                    <h2 class="section-title">Let's <span class="gradient-text">Build Something</span></h2>
+                    <p class="contact-description">
+                        Ready to transform your ideas into reality? Let's create something amazing 
+                        together. Reach out and let's discuss your project.
+                    </p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>contact@vibecode.dev</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Digital Realm, Worldwide</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#" class="social-link large" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link large" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link large" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link large" aria-label="Dribbble">
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required placeholder="Your Name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="your@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a topic</option>
+                                <option value="project">New Project</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="general">General Inquiry</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon"><i class="fas fa-code"></i></span>
+                        <span class="logo-text">Vibe<span class="accent">Code</span></span>
+                    </a>
+                    <p class="footer-tagline">
+                        Crafting digital experiences that inspire and transform
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="#">Web Development</a></li>
+                            <li><a href="#">UI/UX Design</a></li>
+                            <li><a href="#">Mobile Apps</a></li>
+                            <li><a href="#">Consulting</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h4>Legal</h4>
+                        <ul>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">Cookie Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2024 Vibe Code. All rights reserved.
+                </p>
+                <div class="footer-social">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Custom Cursor -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
